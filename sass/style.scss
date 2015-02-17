@@ -1,4 +1,111 @@
-body {
-	background-color: #888;
-	color: green;
+body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
+	margin: 0;
+	padding: 0;
 }
+.floatleft {
+	float: left;
+}
+
+.floatright {
+	float: right;
+}
+
+body {
+	max-width: 1700px;
+	margin: 0 auto;
+}
+
+#navbar {
+	width: 240px;
+	background-color: #000;
+	color: red;
+	position: absolute;
+    height: 850px;
+}
+
+#menuicon {
+	display: none;
+}
+
+#wrapper {
+	width: 82.9%;
+	position: relative;
+	left: 240px;
+	max-height: 850px; 
+    overflow: auto;
+}
+
+#banner {
+	max-width: 100%;
+	margin: 1% 0 1% 0;
+
+	img {
+		max-width: 95%;
+	}
+}
+
+#linkwrapper {
+	margin: 0 auto;
+}
+
+.photolinks {
+	max-width: 48%;
+
+	img {
+		max-width: 100%;
+	}
+}
+
+#rightphoto {
+	margin: 0 1% 1.5% 0.5%;
+}
+
+#leftphoto {
+	margin: 0 0.5% 1.5% 1.5%;
+}
+
+@media screen and (max-width: 1000px){
+	
+	#navbar {
+		width: 100%;
+		height: 80px;
+	}
+	#menuicon {
+		display: inline;
+
+		img {
+			margin: 23px 23px 0 0;
+		}
+	}
+	#wrapper {
+		width: 100%;
+		left: 0;
+		top: 80px;
+	}
+	#banner img {
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 480px){
+
+	#rightphoto, #leftphoto, .photolinks {
+		max-width: 100%;
+		margin: 0 auto;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

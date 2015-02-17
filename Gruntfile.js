@@ -13,8 +13,7 @@ module.exports = function(grunt) {
 
             dev: {
                 options: {
-                    style: "compressed",
-                    sourcemap : true
+                    style: "compressed"
                 },
 
                 files : {
