@@ -1,8 +1,8 @@
 {
   "name": "tonyRiffSite",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "tony rif site",
-  "main": "Gruntfile.js",
+  "main": "js/script.js",
   "author": "damian crow",
   "license": "ISC",
   "devDependencies": {
