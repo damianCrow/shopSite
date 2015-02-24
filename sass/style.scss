@@ -42,7 +42,7 @@
   animation-direction: $name;
 }
 // ANIMATIONS
-.show {
+.menushow {
 	@include animation(menuAnimation 0.5s);
 	@include keyframes(menuAnimation){
 		0%   {right: -25%;}
@@ -50,7 +50,7 @@
 	}
 	-webkit-animation-fill-mode: forwards; 
 }
-.hide {
+.menuhide {
 	@include animation(menuReanimation 0.5s);
 	@include keyframes(menuReanimation){
 		100% {right: -25%;}
@@ -58,41 +58,38 @@
 	}
 	-webkit-animation-fill-mode: forwards;
 }
-.reducewidth {
-		@include animation(reduceWrapper 0.5s);
-		@include keyframes(reduceWrapper){
-			0%   {width: 94%;}
-		    100% {width: 75%;}
-		}
-		-webkit-animation-fill-mode: forwards; 
+.slideleft {
+	@include animation(slideleft 0.5s);
+	@include keyframes(slideleft){
+		0%   {left: 0;}
+		100% {left: -25%;}
 	}
-	.increasewidth {
-		@include animation(increaseWrapper 0.5s);
-		@include keyframes(increaseWrapper){
-			100% {width: 100%;}
-		    0%   {width: 75%;}
-		}
-		-webkit-animation-fill-mode: forwards; 
-	}
-.bannerslideleft {
-	position:relative;
-	@include animation(bannerslide 3s);
-	@include keyframes(bannerslide){
-			100% {left: -100%;}
-		    0%   {left: 0;}
-	}
-	-webkit-animation-fill-mode: forwards;
-	@include animation-delay(5s);
+	-webkit-animation-fill-mode: forwards; 
 }
-.nextbannerslide {
+.slideright {
+	@include animation(increaseWrapper 0.5s);
+	@include keyframes(increaseWrapper){
+		100% {left: 0;}
+		  0% {left: -25%;}
+	}
+	-webkit-animation-fill-mode: forwards; 
+}
+
+.bannerslide {
 	position:relative;
-	@include animation(bannerslider 3s);
-	@include keyframes(bannerslider){
-			  0% {right: -100%;}
-		    100% {right: 0;}
+	@include animation(bannerslide 25s infinite);
+	@include keyframes(bannerslide){
+			100%  {left: 0%;}
+			97%	  {left: -33.3334%;}
+			84%   {left: -33.3334%;}
+			80%   {left: -67%;}
+			55%   {left: -67%;}
+			51%   {left: -33.3334%;}
+			26%   {left: -33.3334%;}
+			22%   {left: 0%;}
+		    0%    {left: 0%;}
 	}
 	-webkit-animation-fill-mode: forwards;
-	@include animation-delay(5s);
 }
 
 body {
@@ -102,6 +99,7 @@ body {
 body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	margin: 0;
 	padding: 0;
+	font-family: Proxima Nova,Helvetica,Arial,sans-serif;
 }
 .floatleft {
 	float: left;
@@ -114,19 +112,44 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 #view {
 	max-width: 2220px;
 	width: 100%;
-	height: 100vw;
+	height: 100vh;
 	margin: auto;
 	background-color: #ffffff;
 	overflow: auto;
 }
 
-#navbar {
+.navbarleft {
 	width: 240px;
 	background-color: #000;
-	color: red;
 	position: fixed;
     height: 100vh;
     z-index: 10;
+}
+#navlinks {
+    font-size: 95%;
+   	color: #999999;
+	list-style: none;
+	font-weight: lighter;
+	margin: 90px 15% 0 15%;
+	li {
+		margin-bottom: 20px;
+	}
+	a:hover {
+		color: #f652ff;
+		cursor: pointer;
+	}
+	#aboutlink {
+		margin-top: 50px;
+	}
+}
+
+#logo {
+	margin: 20px 0 0 20px;
+	position: absolute;
+	z-index: 100;
+	img{
+		max-width: 50%;
+	}
 }
 
 #menuicon {
@@ -137,13 +160,20 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	max-width: 100%;
 	position: relative;
 	margin-left: 240px;
-	max-height: 100vh; 
-	overflow: auto;
+	max-height: 100vh;
+	overflow: auto; 
+}
+
+#bannerwrapper {
+	overflow: hidden;
 }
 
 #banner {
-	width: 100%;
-	margin: 1% 0 1% 0;
+	//width: 100%;
+	//max-width: 100%;
+	margin: 0 0 1% 0;
+	overflow: hidden;
+	//max-height: 600px;
 
 	img {
 		width: 100%;
@@ -169,13 +199,21 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 #leftphoto {
 	margin: 0 0.5% 1.5% 1.5%;
 }
+#menucloseicon {
+	display: none;
+}
 
 @media screen and (max-width: 1024px){
 	
-	#navbar {
+	#navheader {
 		width: 100%;
 		height: 80px;
 		z-index: 3;
+		background-color: #000;
+		position: fixed;
+	}
+	#navlinks{
+		display: none;
 	}
 	#menuicon {
 		display: inline;
@@ -184,12 +222,17 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 			margin: 23px 23px 0 0;
 		}
 	}
-	#menu {
+	#menucloseicon {
+		margin: 23px 20px 0 0;
+		right: 0px;
+		display: inline;
+		position: absolute;
+	}
+	.menu {
 		width: 25%;
 		background-color: #000;
 		height: 100vh;
 		position: absolute;
-		top: 80px;
 		z-index: 55;
 		right: 9999px;
 	}
@@ -212,15 +255,23 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		margin: 0 auto;
 	}
 
-	#menu {
-		width: 40%;
+	.menu {
+		width: 70%;
 		// wrapper resize to 60% is in js code in showHideMenu function.
 	}
 	.hide {
-		@include animation(menuReanimation 0.2s);
+		@include animation(menuReanimation 0.5s);
 		@include keyframes(menuReanimation){
-			100% {right: -40%;}
+			100% {right: -70%;}
 		    0%   {right: 0;}
+		}
+		-webkit-animation-fill-mode: forwards;
+	}
+	.slideleft {
+		@include animation(slideleft 0.5s);
+		@include keyframes(slideleft){
+			0%   {left: 0;}
+			100% {left: -70%;}
 		}
 		-webkit-animation-fill-mode: forwards;
 	}

@@ -1,43 +1,70 @@
-var menuicon = document.getElementById('menuicon');
+var menuIcon = document.getElementById('menuicon');
 var wrapper = document.getElementById('wrapper');
-var menu = document.getElementById('menu');
-var bannerimage = document.getElementById('bannerimage');
+var bannerImage = document.getElementById('bannerimage');
 var banner = document.getElementById('banner');
+var navBar = document.getElementById('navbar');
+var navHeader = document.getElementById('navheader');
+var navLinks = document.getElementById('navlinks');
+var logo = document.getElementById('logo');
+var menuCloseIcon = document.getElementById('menucloseicon');
+var bannerImageSource = [
+	'assets/banner-junkyard-gin-new.jpg',
+	'assets/banner-gold-edition-prints.jpg',
+	'assets/junkyard-gin-banner.jpg'
+];
 
+if(window.innerWidth <= 1024){
+	navBar.removeAttribute('class');
+}
+menuCloseIcon.onclick = closeMenu;
+function closeMenu(){
+	navBar.className = 'menuhide menu';
+	wrapper.className = 'slideright';
+	navHeader.className = 'slideright';
+	logo.className = 'slideright';
+}
 
 window.onresize = removeMenuClass;
 
 function removeMenuClass(){
-
+	logo.removeAttribute('class');
+	
 	if(window.innerWidth > 1024){
- 		menu.removeAttribute('class');
 		wrapper.removeAttribute('class');
+		navBar.className = 'navbarleft';
+		navLinks.style.display = 'inherit';
 	}
-}
-
-menuicon.onclick = showHideMenu;
-
-function showHideMenu(){
-
-	if(menu.className !== 'show'){
-		menu.className = 'show';
-		wrapper.className = 'reducewidth';
+	else if(window.innerWidth <= 1024){
+		navBar.removeAttribute('class');
+		navLinks.style.display = 'none';
+		wrapper.className = 'slideright';
+		navHeader.className = 'slideright';
 	}
-	else if(menu.className == 'show'){
-		menu.className = 'hide';
-		wrapper.className = 'increasewidth';
-	}
-	//else if(window.innerWidth <= 480){
-
-	//	wrapper.style.width = 20 + '%';
-	//}
 	else{};
 }
 
-var bannerimagesource = ['assets/junkyard-gin-banner.jpg','assets/apparel-link.jpg'];
+menuIcon.onclick = showHideMenu;
+
+function showHideMenu(){
+
+	if(navBar.className !== 'menushow menu'){
+		navBar.className = 'menushow menu';
+		wrapper.className = 'slideleft';
+		navHeader.className = 'slideleft';
+		navLinks.style.display = 'inherit';
+		logo.className = 'slideleft';
+	}
+	else if(navBar.className == 'menushow menu'){
+		navBar.className = 'menuhide menu';
+		wrapper.className = 'slideright';
+		navHeader.className = 'slideright';
+		logo.className = 'slideright';
+	}
+	else{};
+}
 
 /*if(bannerimage.style.left < 300){
-for(var i = 0; i < bannerimagesource.length; i++){
+for(var i = 0; i < bannerImageSource.length; i++){
 
 	if(bannerimagesource[i] == bannerimagesource.length){
 		bannerimagesource[i] = bannerimagesource[0];
@@ -46,38 +73,32 @@ for(var i = 0; i < bannerimagesource.length; i++){
 	console.log(bannerimagesource[i]);	
 }
 }
+*/
 
-function changebannerclass(){
-	if(bannerimagesourceindex == bannerimagesource.length -1){
-	bannerimagesourceindex = 0;
-	}
-	bannerimagesourceindex ++;
-	bannerimage.src = bannerimagesource[bannerimagesourceindex];
-	bannerimage2.className = 'bannerslideleft'
-	bannerimage.className = 'nextbannerslide';
-}*/
-
+	
 //bannerimage.addEventListener("webkitAnimationStart", nextbanner);
 //bannerimage.addEventListener("animationstart", nextbanner);
 
-window.onlload = nextbanner;
+document.addEventListener("DOMContentLoaded", nextBanner);
 
-function nextbanner(){
-	for(var i = 0; i < bannerimagesource.length - 1; i++){
+banner.style.width = 100 * bannerImageSource.length + '%';
+var imageWidth = 100 / bannerImageSource.length + '%';
 
-		if(i == bannerimagesource.length - 1){
+function nextBanner(){
+	for(var i = 0; i < bannerImageSource.length; i++){
+
+		var image = document.createElement('img');
+		image.setAttribute('src', bannerImageSource[i]);
+		image.style.width = imageWidth;
+		image.style.float = 'left';
+		image.className = 'bannerslide';
+		if(i == bannerImageSource.length){
 			i = 0;
 		}
-		var image = document.createElement('img');
-		image.setAttribute('src', bannerimagesource[i]);
-		image.className = 'bannerslideleft';
 		banner.appendChild(image);
-}
+	}
 
 }
 
 
-
-
-
- 
+	
