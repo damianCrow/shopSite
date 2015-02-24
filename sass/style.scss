@@ -41,7 +41,12 @@
   -webkit-animation-direction: $name;
   animation-direction: $name;
 }
+
+
 // ANIMATIONS
+
+// you don't need animations for this.
+// use a transition instead.
 .menushow {
 	@include animation(menuAnimation 0.5s);
 	@include keyframes(menuAnimation){
@@ -50,6 +55,9 @@
 	}
 	-webkit-animation-fill-mode: forwards; 
 }
+
+// you don't need animations for this.
+// use a transition instead.
 .menuhide {
 	@include animation(menuReanimation 0.5s);
 	@include keyframes(menuReanimation){
@@ -58,6 +66,9 @@
 	}
 	-webkit-animation-fill-mode: forwards;
 }
+
+// you don't need animations for this.
+// use a transition instead.
 .slideleft {
 	@include animation(slideleft 0.5s);
 	@include keyframes(slideleft){
@@ -66,6 +77,9 @@
 	}
 	-webkit-animation-fill-mode: forwards; 
 }
+
+// you don't need animations for this.
+// use a transition instead.
 .slideright {
 	@include animation(increaseWrapper 0.5s);
 	@include keyframes(increaseWrapper){
@@ -75,6 +89,9 @@
 	-webkit-animation-fill-mode: forwards; 
 }
 
+// this assumes that you have three images and will
+// completely break if you have more/less.
+// use a transition instead.
 .bannerslide {
 	position:relative;
 	@include animation(bannerslide 25s infinite);
@@ -93,7 +110,7 @@
 }
 
 body {
-	background-color: #000;
+	background-color: #000; // use sass variables for colours.
 }
 
 body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
@@ -110,11 +127,11 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 }
 
 #view {
-	max-width: 2220px;
+	max-width: 2220px; // that's a MASSIVE max-width. consider reducing to ~1600
 	width: 100%;
-	height: 100vh;
+	height: 100vh; // 'vh' isn't that widely supported, consider an alternative.
 	margin: auto;
-	background-color: #ffffff;
+	background-color: #ffffff; // use sass variables for colours.
 	overflow: auto;
 }
 
@@ -122,12 +139,12 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	width: 240px;
 	background-color: #000;
 	position: fixed;
-    height: 100vh;
-    z-index: 10;
+    height: 100vh; // 'vh' isn't that widely supported, consider an alternative.
+    z-index: 10; // try to avoid using z-index unless absolutely necessary.
 }
 #navlinks {
     font-size: 95%;
-   	color: #999999;
+   	color: #999999; // use sass variables for colours.
 	list-style: none;
 	font-weight: lighter;
 	margin: 90px 15% 0 15%;
@@ -135,7 +152,7 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		margin-bottom: 20px;
 	}
 	a:hover {
-		color: #f652ff;
+		color: #f652ff; // use sass variables for colours.
 		cursor: pointer;
 	}
 	#aboutlink {
@@ -146,7 +163,7 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 #logo {
 	margin: 20px 0 0 20px;
 	position: absolute;
-	z-index: 100;
+	z-index: 100; // try to avoid using z-index unless absolutely necessary.
 	img{
 		max-width: 50%;
 	}
@@ -208,8 +225,8 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	#navheader {
 		width: 100%;
 		height: 80px;
-		z-index: 3;
-		background-color: #000;
+		z-index: 3; // try to avoid using z-index unless absolutely necessary.
+		background-color: #000; // use sass variables for colours.
 		position: fixed;
 	}
 	#navlinks{
@@ -258,7 +275,12 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	.menu {
 		width: 70%;
 		// wrapper resize to 60% is in js code in showHideMenu function.
+
+		// as per the above, why is the resize in JS code?
 	}
+
+	// you don't need animations for this.
+	// use a transition instead.
 	.hide {
 		@include animation(menuReanimation 0.5s);
 		@include keyframes(menuReanimation){
@@ -267,6 +289,9 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		}
 		-webkit-animation-fill-mode: forwards;
 	}
+
+	// you don't need animations for this.
+	// use a transition instead.
 	.slideleft {
 		@include animation(slideleft 0.5s);
 		@include keyframes(slideleft){
