@@ -41,7 +41,9 @@ module.exports = function(grunt) {
 
             server : {
                 options: {
-                    open: true
+                    open: {
+                        target: 'http://localhost:8000/'
+                    }
                 }
             }
         },

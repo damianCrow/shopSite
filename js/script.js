@@ -1,21 +1,23 @@
 var menuIcon = document.getElementById('menuicon');
 var wrapper = document.getElementById('wrapper');
-var bannerImage = document.getElementById('bannerimage');
+//var bannerImage = document.getElementById('bannerimage');
 var banner = document.getElementById('banner');
 var navBar = document.getElementById('navbar');
 var navHeader = document.getElementById('navheader');
 var navLinks = document.getElementById('navlinks');
 var logo = document.getElementById('logo');
 var menuCloseIcon = document.getElementById('menucloseicon');
+var apparelPageRightColumn = document.getElementById('column2');
 var bannerImageSource = [
 	'assets/banner-junkyard-gin-new.jpg',
 	'assets/banner-gold-edition-prints.jpg',
 	'assets/junkyard-gin-banner.jpg'
 ];
 
-if(window.innerWidth <= 1024){
+if(window.innerWidth <= 1100){
 	navBar.removeAttribute('class');
 }
+/*
 menuCloseIcon.onclick = closeMenu;
 function closeMenu(){
 	navBar.className = 'menuhide menu';
@@ -23,18 +25,22 @@ function closeMenu(){
 	navHeader.className = 'slideright';
 	logo.className = 'slideright';
 }
-
+*/
 window.onresize = removeMenuClass;
 
 function removeMenuClass(){
 	logo.removeAttribute('class');
+
+	if(apparelPageRightColumn){
+		apparelPageRightColumn.style.left = '50%';
+	}
 	
-	if(window.innerWidth > 1024){
+	if(window.innerWidth > 1100){
 		wrapper.removeAttribute('class');
 		navBar.className = 'navbarleft';
 		navLinks.style.display = 'inherit';
 	}
-	else if(window.innerWidth <= 1024){
+	else if(window.innerWidth <= 1100){
 		navBar.removeAttribute('class');
 		navLinks.style.display = 'none';
 		wrapper.className = 'slideright';
@@ -44,6 +50,7 @@ function removeMenuClass(){
 }
 
 menuIcon.onclick = showHideMenu;
+menuCloseIcon.onclick = showHideMenu;
 
 function showHideMenu(){
 
@@ -53,12 +60,18 @@ function showHideMenu(){
 		navHeader.className = 'slideleft';
 		navLinks.style.display = 'inherit';
 		logo.className = 'slideleft';
+		if(apparelPageRightColumn){
+		apparelPageRightColumn.style.left = '10%';
+		}
 	}
 	else if(navBar.className == 'menushow menu'){
 		navBar.className = 'menuhide menu';
 		wrapper.className = 'slideright';
 		navHeader.className = 'slideright';
 		logo.className = 'slideright';
+		if(apparelPageRightColumn){
+		apparelPageRightColumn.style.left = '50%';
+		}
 	}
 	else{};
 }
@@ -100,5 +113,5 @@ function nextBanner(){
 
 }
 
-
+console.log(apparelPageRightColumn);
 	

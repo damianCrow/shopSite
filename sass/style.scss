@@ -45,7 +45,7 @@
 .menushow {
 	@include animation(menuAnimation 0.5s);
 	@include keyframes(menuAnimation){
-		0%   {right: -25%;}
+		0%   {right: -40%;}
 	    100% {right: 0;}
 	}
 	-webkit-animation-fill-mode: forwards; 
@@ -53,7 +53,7 @@
 .menuhide {
 	@include animation(menuReanimation 0.5s);
 	@include keyframes(menuReanimation){
-		100% {right: -25%;}
+		100% {right: -40%;}
 	    0%   {right: 0;}
 	}
 	-webkit-animation-fill-mode: forwards;
@@ -62,7 +62,7 @@
 	@include animation(slideleft 0.5s);
 	@include keyframes(slideleft){
 		0%   {left: 0;}
-		100% {left: -25%;}
+		100% {left: -40%;}
 	}
 	-webkit-animation-fill-mode: forwards; 
 }
@@ -70,7 +70,7 @@
 	@include animation(increaseWrapper 0.5s);
 	@include keyframes(increaseWrapper){
 		100% {left: 0;}
-		  0% {left: -25%;}
+		  0% {left: -40%;}
 	}
 	-webkit-animation-fill-mode: forwards; 
 }
@@ -79,18 +79,17 @@
 	position:relative;
 	@include animation(bannerslide 25s infinite);
 	@include keyframes(bannerslide){
-			100%  {left: 0%;}
-			97%	  {left: -33.3334%;}
-			84%   {left: -33.3334%;}
-			80%   {left: -67%;}
-			55%   {left: -67%;}
-			51%   {left: -33.3334%;}
-			26%   {left: -33.3334%;}
-			22%   {left: 0%;}
+			100%  {left: 0;}
+			98%   {left: -67%;}
+			67%   {left: -67%;}
+			64%   {left: -33.3334%;}
+			33%   {left: -33.3334%;}
+			30%   {left: 0%;}
 		    0%    {left: 0%;}
 	}
 	-webkit-animation-fill-mode: forwards;
 }
+// INDEX PAGE STYLES //
 
 body {
 	background-color: #000;
@@ -100,6 +99,7 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	margin: 0;
 	padding: 0;
 	font-family: Proxima Nova,Helvetica,Arial,sans-serif;
+	text-decoration: none;
 }
 .floatleft {
 	float: left;
@@ -130,7 +130,7 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
    	color: #999999;
 	list-style: none;
 	font-weight: lighter;
-	margin: 90px 15% 0 15%;
+	margin: 120px 25% 0 25%;
 	li {
 		margin-bottom: 20px;
 	}
@@ -144,11 +144,11 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 }
 
 #logo {
-	margin: 20px 0 0 20px;
+	margin: 30px 0 0 40px;
 	position: absolute;
 	z-index: 100;
-	img{
-		max-width: 50%;
+	img {
+		 max-width: 50%;
 	}
 }
 
@@ -185,25 +185,68 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 }
 
 .photolinks {
-	max-width: 48%;
+	max-width: 50%;
 
 	img {
 		width: 100%;
 	}
 }
 
-#rightphoto {
-	margin: 0 1% 1.5% 0.5%;
-}
-
-#leftphoto {
-	margin: 0 0.5% 1.5% 1.5%;
-}
 #menucloseicon {
 	display: none;
 }
 
-@media screen and (max-width: 1024px){
+// APPRAEL PAGE STYLES //
+
+.innerwrap {
+	margin: 50px 0 0 0;
+	color: #999999;
+}
+
+.rightcolumn {
+	width: 50%;
+	position: fixed;
+	left: 50%;
+	padding-left: 200px;
+	ol {
+		list-style-type: disc;
+		li {
+			margin-bottom: 10px;
+		}
+	}
+	.appareltitle {
+		margin: 50px 0 35px 0;
+		color: #28d2b3;
+	}
+	select, h5, .apparelprice {
+		margin-bottom: 35px;
+		font-size: 20px;
+	}
+	.tagline {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+	.button {
+		background-color: #28d2b3;
+		width: 150px;
+		height: 50px;
+		clear: both;
+		margin: 35px 0 0 0;
+		text-align: center;
+		line-height: 55px;
+		color: #fff;
+	}
+}
+.leftcolumn {
+	width: 50%;
+	overflow: auto;
+	img {
+		max-width: 100%;
+	}
+}
+// PAGE BREAK 1 //
+
+@media screen and (max-width: 1100px){
 	
 	#navheader {
 		width: 100%;
@@ -212,8 +255,12 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		background-color: #000;
 		position: fixed;
 	}
+	#logo {
+	margin: 14px 0 0 20px;
+	}
 	#navlinks{
 		display: none;
+		margin-top: 90px;
 	}
 	#menuicon {
 		display: inline;
@@ -229,7 +276,7 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		position: absolute;
 	}
 	.menu {
-		width: 25%;
+		width: 40%;
 		background-color: #000;
 		height: 100vh;
 		position: absolute;
@@ -245,16 +292,40 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 	#banner img {
 		max-width: 100%;
 	}
-}
+	// APPRAEL PAGE STYLES (PAGE BREAK 1) //
 
-@media screen and (max-width: 480px){
+	.rightcolumn {
+		padding-left: 30px;
 
-	.photolinks, #leftphoto, #rightphoto {
-		max-width: 100%;
-		float: none;
-		margin: 0 auto;
+		.tagline, select, h5, .apparelprice {
+			font-size: 15px;
+		}
 	}
+	.innerwrap {
+	margin: 90px 0 0 0;
+	}
+}
+// PAGE BREAK 2 //
 
+@media screen and (max-width: 580px){
+
+	#wrapper {
+		top: 56px;
+	}
+	#navheader {
+		height: 56px;
+	}
+	#menuicon {
+		img {
+			margin: 14px 14px 0 0;
+		}
+	}
+	#logo {
+		margin: 8px 0 0 4px;
+		img {
+			 max-width: 40%;
+		}
+	}
 	.menu {
 		width: 70%;
 		// wrapper resize to 60% is in js code in showHideMenu function.
@@ -275,7 +346,28 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 		}
 		-webkit-animation-fill-mode: forwards;
 	}
-	
+// APPRAEL PAGE STYLES (PAGE BREAK 2) //
+
+	.rightcolumn {
+		position: absolute;
+		padding-left: 10px;
+		ol li {
+			font-size: 12px;
+		}
+		.appareltitle {
+		margin: 15px 0 15px 0;
+		}
+		.apparelprice {
+			margin-bottom: 15px;
+		}
+		select, h5, .apparelprice {
+		margin-bottom: 15px;
+		font-size: 12px;
+		}
+	}
+	.innerwrap {
+	margin: 10px 0 0 0;
+	}
 }
 
 
