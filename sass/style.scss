@@ -14,13 +14,13 @@
         @content;
     }
 }
-@mixin transition($transition-property, $transition-time, $method) {
+@mixin transition($transition-property) {
 
-    -webkit-transition: $transition-property $transition-time $method;
-    -moz-transition: $transition-property $transition-time $method;
-    -ms-transition: $transition-property $transition-time $method;
-    -o-transition: $transition-property $transition-time $method;
-    transition: $transition-property $transition-time $method;
+    -webkit-transition: $transition-property;
+    -moz-transition: $transition-property;
+    -ms-transition: $transition-property;
+    -o-transition: $transition-property;
+    transition: $transition-property;
 }
 
 @mixin animation($name) {
@@ -200,7 +200,11 @@ body, div, ul, li, h1, h2, h3, h4, h5, h6, a, p {
 
 .innerwrap {
 	margin: 50px 0 0 0;
-	color: #999999;
+	color: #999999;	
+}
+
+#column2 {
+	@include transition(left 0.5s);
 }
 
 .rightcolumn {
